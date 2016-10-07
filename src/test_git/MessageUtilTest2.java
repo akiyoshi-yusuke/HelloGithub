@@ -10,8 +10,8 @@ public class MessageUtilTest2 {
 		// setup
 		MessageUtil messageUtil = new MessageUtil();
 		// when
-		String message = messageUtil.createMessage("Shoichi");
+		String message = messageUtil.createMessage("akiyo");
 		// then
-		assertEquals("hello, Shoichi", message);	}
+		assertEquals("hello, akiyo", message);	}
 
 }
