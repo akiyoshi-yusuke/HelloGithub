@@ -1,4 +1,4 @@
 language: java
   - 1.7
 script:
-  - mvn compile
+  - sudo mvn compile
