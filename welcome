@@ -1,0 +1,14 @@
+<html>
+<head>
+<title>Welcome!</title>
+</head>
+<body>
+<h1>Welcome! <?php echo $name; ?> !</h1>
+<h3>My Blog</h3>
+<a href="http://sil.hatenablog.com/">This is my blog.</a>
+<h3>My Twitter</h3>
+<a href="https://twitter.com/wata_sil/">This is my twitter.</a>
+<h3>My Github</h3>
+<a href="https://github.com/wata727/welcome/">This is my github.</a>
+</body>
+</html>
