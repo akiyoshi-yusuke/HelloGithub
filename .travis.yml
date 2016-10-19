@@ -1,4 +1,5 @@
 language: java
-  - 1.7
+  jdk:
+  - oraclejdk8
 script:
   - sudo mvn compile
