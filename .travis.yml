@@ -1,4 +1,4 @@
 language: java
   - 1.8
 script:
-  - mvn test
+  - mvn compile
