@@ -1,4 +1,4 @@
-language: c     # 言語をC言語に設定 
+language: c     # 言語をC言語
 compiler:       # clangとgccの両方でテストするよう設定
   - clang
   - gcc
