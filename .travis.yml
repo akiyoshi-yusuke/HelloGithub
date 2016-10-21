@@ -1,5 +1,6 @@
 language : java
-install: ant deps
+before_install:
+ - apache-mave
 jdk : 
  - oraclejdk8
 script :
