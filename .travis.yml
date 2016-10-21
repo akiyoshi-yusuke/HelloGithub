@@ -3,5 +3,8 @@ jdk :
  - oraclejdk8
 script :
  - mvn test
-cache: bundler
-bundler_args: --without production --deployment
+ 
+cache:
+ directories:
+ - .autoconf
+ - $HOME/.m2
