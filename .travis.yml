@@ -1,6 +1,6 @@
 language : java
 before_install:
- - apache-mave
+ - sudo apt-get install oracle-java8-installer
 jdk : 
  - oraclejdk8
 script :
