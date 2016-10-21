@@ -5,7 +5,6 @@ before_install:
 jdk : 
  - oraclejdk8
 script :
- - mvn test
  - mvn package
 services:
   - mysql
