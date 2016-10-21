@@ -14,3 +14,7 @@ cache:
  directories:
  - .autoconf
  - $HOME/.m2
+
+notifications:
+  email:
+    - akiyuu911111@yahoo.co.jp
