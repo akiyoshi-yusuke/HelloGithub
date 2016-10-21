@@ -1,10 +1,12 @@
 language : java
 before_install:
+ - sudo apt-get update
  - sudo apt-get install oracle-java8-installer
 jdk : 
  - oraclejdk8
 script :
  - mvn test
+ - mvn package
  
 cache:
  directories:
