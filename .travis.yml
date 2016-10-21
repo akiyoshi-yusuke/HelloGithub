@@ -23,6 +23,10 @@ sudo: required
 services:
 - docke
 
+branches:
+  except:
+    - master
+
 after_success:
   - echo -e "Host github.com\n\tStrictHostKeyChecking no\nIdentityFile ~/.ssh/deploy.key\n" >> ~/.ssh/config
   - openssl aes-256-cbc -k "$SERVER_KEY" -in .travis/deploy_key.enc -d -a -out deploy.key
