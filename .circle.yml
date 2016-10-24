@@ -4,10 +4,7 @@ before_install:
  - sudo apt-get install oracle-java8-installer
 jdk : 
  - oraclejdk8
-script :
- - mvn compile
- - mvn test
- - mvn package
+
 services:
   - mysql
  
