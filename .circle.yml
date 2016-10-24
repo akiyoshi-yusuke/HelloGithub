@@ -7,9 +7,3 @@ machine:
   # Version of ruby to use
   java:
     version: openjdk8
-
-  # Override /etc/hosts
-  hosts:
-    circlehost: 127.0.0.1
-    dev.mycompany.com: 127.0.0.1
-
