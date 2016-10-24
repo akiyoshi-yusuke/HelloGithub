@@ -16,7 +16,7 @@ cache:
 
 notifications:
   email:
-    - akiyuu911111@yahoo.co.jp
+    - kkkiyuu911111@yahoo.co.jp
 
 sudo: required
 services:
