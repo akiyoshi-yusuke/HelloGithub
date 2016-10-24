@@ -1,0 +1,27 @@
+language : java
+before_install:
+ - sudo apt-get update
+ - sudo apt-get install oracle-java8-installer
+jdk : 
+ - oraclejdk8
+script :
+ - mvn package
+services:
+  - mysql
+ 
+cache:
+ directories:
+ - .autoconf
+ - $HOME/.m2
+
+notifications:
+  email:
+    - akiyuu911111@yahoo.co.jp
+
+sudo: required
+services:
+- docke
+
+branches:
+  except:
+    - master
