@@ -2,12 +2,11 @@
 machine:
 
   timezone:
-    America/Los_Angeles # Set the timezone
+    Japan/Tokyo # Set the timezone
 
   # Version of ruby to use
-  ruby:
-    version:
-      1.8.7-p358-falcon-perf
+  java:
+    version: openjdk8
 
   # Override /etc/hosts
   hosts:
@@ -17,22 +16,26 @@ machine:
   # Add some environment variables
   environment:
     CIRCLE_ENV: test
-    DATABASE_URL: postgres://ubuntu:@127.0.0.1:5432/circle_test
+    # DATABASE_URL: postgres://ubuntu:@127.0.0.1:5432/circle_test
+    
+    services:
+        - cassandra
+## servicesはCircleCiがデフォルトでインストールしていないdb serviceをインストールしたい時に記述
 
 ## Customize checkout
-checkout:
-  post:
-    - git submodule sync
-    - git submodule update --init # use submodules
+# checkout:
+#  post:
+ #   - git submodule sync
+ #   - git submodule update --init # use submodules
+## checkoutはgitのsubmoduleを追加する時などに記述
 
 ## Customize dependencies
 dependencies:
-  pre:
-    - npm install coffeescript # install from a different package manager
-    - gem uninstall bundler # use a custom version of bundler
-    - gem install bundler --pre
-
-  override:
+  pre: ## CircleCiのデフォルトコマンド実行前
+  - sudo apt-get update
+  - sudo apt-get install oracle-java8-installer
+   
+  override: ## デフォルトのコマンドを上書き
     - bundle install: # note ':' here
         timeout: 180 # fail if command has no output for 3 minutes
         # IMPORTANT NOTE: ^^ the timeout modifier above must be
@@ -47,19 +50,15 @@ dependencies:
 ## Customize database setup
 database:
   override:
-    # replace CircleCI's generated database.yml
-    - cp config/database.yml.ci config/database.yml
-    - bundle exec rake db:create db:schema:load
+    - mysql -u ubuntu circle_test < my-database-setup.sql
+    ## sampleやテストデータなどをsql等でinsertしたい場合に使う
 
 ## Customize test commands
 test:
-  override:
-    - phpunit test/unit-tests # use PHPunit for testing
-  post:
-    - bundle exec rake jasmine:ci: # add an extra test type
-        environment:
-          RAILS_ENV: test
-          RACK_ENV: test
+#  override:
+ #   - phpunit test/unit-tests # use PHPunit for testing
+  post: ## CircleCiの実行後デフォルトコマンド
+    - mvn package
 
 ## Customize deployment commands
 deployment:
