@@ -1,4 +1,4 @@
 ## Customize the test machine
 machine:
   timezone:
-    asia/Tokyo # Set the timezone
+    Asia/Tokyo # Set the timezone
