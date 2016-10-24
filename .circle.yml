@@ -1,26 +1,11 @@
-language : java
-before_install:
- - sudo apt-get update
- - sudo apt-get install oracle-java8-installer
-jdk : 
- - oraclejdk8
-
-services:
-  - mysql
- 
-cache:
- directories:
- - .autoconf
- - $HOME/.m2
-
-notifications:
-  email:
-    - kkkiyuu911111@yahoo.co.jp
-
-sudo: required
-services:
-- docke
-
-branches:
-  except:
-    - master
+machine:
+  java:
+    version: openjdk8
+    
+    test:
+  pre: 
+    - echo "-----start test-----"
+  override:    
+    - mvn package
+  post: 
+    - echo "-----end test-----"
