@@ -5,7 +5,7 @@ language : java
 # - apt-get update
 # - apt-get install oracle-java8-installer
 jdk : 
- - oraclejdk7
+ - oraclejdk8
 script :
  - mvn package
 services:
