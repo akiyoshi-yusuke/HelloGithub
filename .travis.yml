@@ -20,7 +20,7 @@ notifications:
 
 sudo: required
 services:
-- docke
+- docker
 
 branches:
   except:
