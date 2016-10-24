@@ -1,7 +1,9 @@
 language : java
-before_install:
- - sudo apt-get update
- - sudo apt-get install oracle-java8-installer
+
+# sudo: false
+# before_install:
+# - apt-get update
+# - apt-get install oracle-java8-installer
 jdk : 
  - oraclejdk7
 script :
