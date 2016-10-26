@@ -1,5 +1,6 @@
 ## Travis.ymlの構造
 ## 言語、バージョン指定(ビルド環境)
+
 language : java 
 jdk : 
  - oraclejdk8
@@ -52,7 +53,11 @@ before_deploy: echo test4
   - ./after_deploy_1.sh
   - ./after_deploy_2.sh
 
-
+# キャッシュ機能の設定 
+cache:
+ directories:
+ - .autoconf
+ - $HOME/.m2
 
 
 #メール通知の設定
