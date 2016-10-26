@@ -9,8 +9,8 @@ language : java
 
 
 ## Dockerの指定(ビルド環境)
-services:
-- docker
+#services:
+#- docker
 
 ## ↑記述しなければ、デフォルトで用意された環境下で実行される
 
