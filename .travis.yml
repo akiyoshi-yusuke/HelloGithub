@@ -1,9 +1,9 @@
 ## Travis.ymlの構造
-## 言語、バージョン指定(ビルド環境)
 
- language : java 
-jdk : 
- - oraclejdk8
+## 言語、バージョン指定(ビルド環境)
+# language : java 
+#  jdk : 
+# - oraclejdk8
 
 ## ↑サポートされてない言語が指定されると デフォルトで「language: ruby」の状態として 実行される
 
