@@ -5,3 +5,74 @@ language : java
 jdk : 
  - oraclejdk8
 
+
+## ↑Javaのバージョンはデフォルトで「java version "1.7.0_76"」
+
+
+## Dockerの指定(ビルド環境)
+#services:
+#- docker
+
+## ↑記述しなければ、デフォルトで用意された環境下で実行される
+
+
+## ビルドに関する設定
+
+# Travisのビルドは以下の２つのステップ構成
+# 1.インストール：必要な依存関係をインストール
+# 2.スクリプト：ビルドスクリプトを実行
+
+# インストールの前にUbuntuのパッケージやカスタムサービスとして、プロジェクトに必要な依存関係をインストールすることができる
+#before_install: 
+# - sudo apt-get update
+# - sudo apt-get install oracle-java8-installer
+
+# スクリプトの前にカスタムできるコマンド
+before_script : 
+ - mvn compile
+
+# scriptを記述しなければ、デフォルトで「- mvn test -B」が実行される
+
+script :
+ - mvn test
+
+# スクリプトの後にカスタムできるコマンド3種類
+after_success: 
+- echo "success"
+- mvn package
+
+after_failure:
+- echo error
+
+after_script : 
+ - echo "build end"
+ 
+# デプロイの前に行う実行コマンド
+#before_deploy: echo deploy start
+
+# デプロイ先をしているコマンド
+#deploy:
+#  provider: heroku
+#  api_key:
+#    secure: ＜暗号化されたAPIキー＞
+ 
+# デプロイの前に行う実行コマンド
+#after_deploy:
+#  - ./after_deploy_1.sh
+#  - ./after_deploy_2.sh
+
+# キャッシュ機能の設定(ビルド環境)
+cache:
+ directories:
+ - .autoconf
+ - $HOME/.m2
+
+
+#メール通知の設定
+#notifications:
+#  email:
+#    recipients: akiyuu911111@yahoo.co.jp
+#    on_success: change
+#    on_failure: always
+
+# always、never、changeという 項目が設定できて、常にメールをするか、常にしないか、その前の実行時とステータスが変わった時に送るか設定できる。
