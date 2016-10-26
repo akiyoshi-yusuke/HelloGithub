@@ -33,8 +33,8 @@ before_script :
 
 # scriptを記述しなければ、デフォルトで「- mvn test -B」が実行される
 
-#script :
-# - mvn test
+script :
+ - mvn test
 
 # スクリプトの後にカスタムできるコマンド3種類
 #after_success: mvn package
@@ -54,10 +54,10 @@ before_script :
 #  - ./after_deploy_2.sh
 
 # キャッシュ機能の設定 
-cache:
- directories:
- - .autoconf
- - $HOME/.m2
+#cache:
+# directories:
+# - .autoconf
+# - $HOME/.m2
 
 
 #メール通知の設定
