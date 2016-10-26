@@ -33,11 +33,11 @@ before_script :
 
 # 記述しなければ、
 script :
- - mvn package
+ - mvn test
 
 # スクリプトの後にカスタムできるコマンド3種類
-after_success: echo test1
-after_failure: echo test2
+after_success: mvn package
+after_failure: echo error
 # after_script： echo test3
 
 #デプロイ、およびその前後に行う実行コマンド
