@@ -23,9 +23,9 @@ services:
 # 2.スクリプト：ビルドスクリプトを実行
 
 # インストールの前にUbuntuのパッケージやカスタムサービスとして、プロジェクトに必要な依存関係をインストールすることができる
-before_install: 
- - sudo apt-get update
- - sudo apt-get install oracle-java8-installer
+#before_install: 
+# - sudo apt-get update
+# - sudo apt-get install oracle-java8-installer
 
 # スクリプトの前にカスタムできるコマンド
 before_script : 
