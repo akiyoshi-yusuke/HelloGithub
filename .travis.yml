@@ -32,8 +32,8 @@ before_script :
  - mvn compile
 
 # 記述しなければ、
-script :
- - mvn test
+#script :
+# - mvn test
 
 # スクリプトの後にカスタムできるコマンド3種類
 after_success: mvn package
@@ -62,7 +62,7 @@ cache:
 notifications:
   email:
     recipients: akiyuu911111@yahoo.co.jp
-    on_success: change
+    on_success: always # change
     on_failure: always
 
 # always、never、changeという 項目が設定できて、常にメールをするか、常にしないか、その前の実行時とステータスが変わった時に送るか設定できる。
