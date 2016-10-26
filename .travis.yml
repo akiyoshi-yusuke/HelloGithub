@@ -1,35 +1,70 @@
-language : java
+## Travis.ymlの構造
 
-# sudo: false
-# before_install:
-# - apt-get update
-# - apt-get install oracle-java8-installer
+## 言語、バージョン指定(ビルド環境)
+language : java 
 jdk : 
  - oraclejdk8
+
+## ↑サポートされてない言語が指定されると デフォルトで「language: ruby」の状態として 実行される
+
+
+## Dockerの指定(ビルド環境)
+
+services:
+- docker
+
+## ↑記述しなければ、デフォルトで用意された環境下で実行される
+
+
+## ビルドの設定
+
+# Travisのビルドは以下の２つのステップ構成
+# 1.インストール：必要な依存関係をインストール
+# 2.スクリプト：ビルドスクリプトを実行
+
+# インストールの前にUbuntuのパッケージやカスタムサービスとして、プロジェクトに必要な依存関係をインストールすることができる
+before_install: 
+ - sudo apt-get update
+ - sudo apt-get install oracle-java8-installer
+
+# スクリプトの前にカスタムできるコマンド
+before_script
+ - mvn compile
+
+# 記述しなければ、
 script :
  - mvn package
-services:
-  - mysql
- 
+
+# スクリプトの後にカスタムできるコマンド3種類
+after_success: echo test1
+after_failure: echo test2
+after_script： echo test3
+
+デプロイ、およびその前後に行う実行コマンド
+before_deploy: echo 'デプロイ開始'
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: ＜暗号化されたAPIキー＞
+    
+after_deploy:
+  - ./after_deploy_1.sh
+  - ./after_deploy_2.sh
+
+# キャッシュ機能の設定 
 cache:
  directories:
  - .autoconf
  - $HOME/.m2
 
+#メール通知の設定
 notifications:
   email:
-    - akiyuu911111@yahoo.co.jp
+    recipients: 
+	- akiyuu911111@yahoo.co.jp
+    on_success: change
+    on_failure: always
 
-sudo: required
-services:
-- docker
+# always、never、changeという 項目が設定できて、常にメールをするか、常にしないか、その前の実行時とステータスが変わった時に送るか設定できる。
 
-branches:
-  except:
-    - master
-
-after_success:
-  - echo -e "Host github.com\n\tStrictHostKeyChecking no\nIdentityFile ~/.ssh/deploy.key\n" >> ~/.ssh/config
-  - openssl aes-256-cbc -k "$SERVER_KEY" -in .travis/deploy_key.enc -d -a -out deploy.key
-  - cp deploy.key ~/.ssh/
-  - chmod 600 ~/.ssh/deploy.key
