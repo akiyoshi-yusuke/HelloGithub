@@ -28,8 +28,8 @@ services:
 # - sudo apt-get install oracle-java8-installer
 
 # スクリプトの前にカスタムできるコマンド
-#before_script : 
-# - mvn compile
+before_script : 
+ - mvn compile
 
 # scriptを記述しなければ、デフォルトで「- mvn test -B」が実行される
 
@@ -64,7 +64,7 @@ cache:
 notifications:
   email:
     recipients: akiyuu911111@yahoo.co.jp
-    on_success: always # change
+    on_success: change
     on_failure: always
 
 # always、never、changeという 項目が設定できて、常にメールをするか、常にしないか、その前の実行時とステータスが変わった時に送るか設定できる。
