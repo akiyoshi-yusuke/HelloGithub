@@ -1,10 +1,4 @@
 ## Travis.ymlの構造
-# キャッシュ機能の設定 
-cache:
- directories:
- - .autoconf
- - $HOME/.m2
-
 
 ## 言語、バージョン指定(ビルド環境)
 language : java 
@@ -43,23 +37,33 @@ script :
  - mvn test
 
 # スクリプトの後にカスタムできるコマンド3種類
-#after_success: mvn package
-#after_failure: echo error
-# after_script： echo test3
+after_success: 
+- echo "success"
+- mvn package
+after_failure:
+- echo error
+after_script： 
+- echo "bilud end"
 
-#デプロイ、およびその前後に行う実行コマンド
-#before_deploy: echo test4
+# デプロイの前に行う実行コマンド
+#before_deploy: echo deploy start
 
+# デプロイ先をしているコマンド
 #deploy:
 #  provider: heroku
 #  api_key:
 #    secure: ＜暗号化されたAPIキー＞
-    
+ 
+# デプロイの前に行う実行コマンド
 #after_deploy:
 #  - ./after_deploy_1.sh
 #  - ./after_deploy_2.sh
 
-
+# キャッシュ機能の設定(ビルド環境)
+cache:
+ directories:
+ - .autoconf
+ - $HOME/.m2
 
 
 #メール通知の設定
