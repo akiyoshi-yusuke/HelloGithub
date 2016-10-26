@@ -28,7 +28,7 @@ before_install:
  - sudo apt-get install oracle-java8-installer
 
 # スクリプトの前にカスタムできるコマンド
-before_script
+before_script : 
  - mvn compile
 
 # 記述しなければ、
@@ -40,7 +40,7 @@ after_success: echo test1
 after_failure: echo test2
 # after_script： echo test3
 
-デプロイ、およびその前後に行う実行コマンド
+#デプロイ、およびその前後に行う実行コマンド
 before_deploy: echo test4
 
 #deploy:
