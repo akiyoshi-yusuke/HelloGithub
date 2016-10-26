@@ -38,16 +38,15 @@ script :
 # スクリプトの後にカスタムできるコマンド3種類
 after_success: echo test1
 after_failure: echo test2
-after_script： 
-   - echo test3
+# after_script： echo test3
 
 デプロイ、およびその前後に行う実行コマンド
-before_deploy: echo 'デプロイ開始'
+before_deploy: echo test4
 
-deploy:
-  provider: heroku
-  api_key:
-    secure: ＜暗号化されたAPIキー＞
+#deploy:
+#  provider: heroku
+#  api_key:
+#    secure: ＜暗号化されたAPIキー＞
     
 after_deploy:
   - ./after_deploy_1.sh
