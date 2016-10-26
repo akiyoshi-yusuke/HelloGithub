@@ -10,8 +10,8 @@
 
 ## Dockerの指定(ビルド環境)
 
-#services:
-#- docker
+services:
+- docker
 
 ## ↑記述しなければ、デフォルトで用意された環境下で実行される
 
@@ -42,7 +42,7 @@
 # after_script： echo test3
 
 #デプロイ、およびその前後に行う実行コマンド
-before_deploy: echo test4
+#before_deploy: echo test4
 
 #deploy:
 #  provider: heroku
