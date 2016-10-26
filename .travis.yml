@@ -10,8 +10,8 @@ jdk :
 
 ## Dockerの指定(ビルド環境)
 
-services:
-- docker
+#services:
+#- docker
 
 ## ↑記述しなければ、デフォルトで用意された環境下で実行される
 
@@ -28,16 +28,17 @@ services:
 # - sudo apt-get install oracle-java8-installer
 
 # スクリプトの前にカスタムできるコマンド
-before_script : 
- - mvn compile
+#before_script : 
+# - mvn compile
 
-# 記述しなければ、
+# scriptを記述しなければ、デフォルトで「- mvn test -B」が実行される
+
 #script :
 # - mvn test
 
 # スクリプトの後にカスタムできるコマンド3種類
-after_success: mvn package
-after_failure: echo error
+#after_success: mvn package
+#after_failure: echo error
 # after_script： echo test3
 
 #デプロイ、およびその前後に行う実行コマンド
