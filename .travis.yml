@@ -40,11 +40,13 @@ script :
 after_success: 
 - echo "success"
 - mvn package
+
 after_failure:
 - echo error
-after_script： 
-- echo "bilud end"
 
+after_script : 
+ - echo "build end"
+ 
 # デプロイの前に行う実行コマンド
 #before_deploy: echo deploy start
 
@@ -74,4 +76,3 @@ notifications:
     on_failure: always
 
 # always、never、changeという 項目が設定できて、常にメールをするか、常にしないか、その前の実行時とステータスが変わった時に送るか設定できる。
-
