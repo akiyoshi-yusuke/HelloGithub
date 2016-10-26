@@ -38,7 +38,8 @@ script :
 # スクリプトの後にカスタムできるコマンド3種類
 after_success: echo test1
 after_failure: echo test2
-after_script： echo test3
+after_script： 
+   - echo test3
 
 デプロイ、およびその前後に行う実行コマンド
 before_deploy: echo 'デプロイ開始'
