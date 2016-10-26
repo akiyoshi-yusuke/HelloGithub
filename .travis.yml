@@ -1,7 +1,7 @@
 ## Travis.ymlの構造
 
 ## 言語、バージョン指定(ビルド環境)
- language : java 
+language : java 
 jdk : 
  - oraclejdk8
 
