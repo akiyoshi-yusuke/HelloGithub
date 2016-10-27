@@ -2,8 +2,8 @@
 
 ## 言語、バージョン指定(ビルド環境)
 language : java 
-jdk : 
- - oraclejdk8
+#jdk : 
+# - oraclejdk8
 
 
 ## ↑Javaのバージョンはデフォルトで「java version "1.7.0_76"」
