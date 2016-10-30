@@ -2,8 +2,8 @@
 
 ## 言語、バージョン指定(ビルド環境)
 language : java 
-jdk : 
- - oraclejdk8
+#jdk : 
+# - oraclejdk8
 
 
 ## ↑Javaのバージョンはデフォルトで「java version "1.7.0_76"」
@@ -69,10 +69,10 @@ cache:
 
 
 #メール通知の設定
-#notifications:
-#  email:
-#    recipients: akiyuu911111@yahoo.co.jp
-#    on_success: change
-#    on_failure: always
+notifications:
+  email:
+    recipients: akiyuu911111@yahoo.co.jp
+    on_success: change
+    on_failure: always
 
 # always、never、changeという 項目が設定できて、常にメールをするか、常にしないか、その前の実行時とステータスが変わった時に送るか設定できる。
